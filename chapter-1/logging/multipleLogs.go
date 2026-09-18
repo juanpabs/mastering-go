@@ -15,7 +15,7 @@ func main() {
 		os.Exit(0)
 	}
 	defer file.Close()
-	w := io.MultiWriter(file, os.Stderr)
+	w := io.MultiWriter(file, os.Stderr) // logging on myLog.log file and on os.Stderr (terminal)
 	logger := log.New(w, "myApp: ", log.LstdFlags)
 	logger.Printf("BOOK %d", os.Getpid())
 }

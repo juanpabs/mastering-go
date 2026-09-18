@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	sysLog, err := syslog.New(syslog.LOG_SYSLOG, "systemLog.go")
+	sysLog, err := syslog.New(syslog.LOG_SYSLOG, "systemLog.go") // logging on the system logs file
 	if err != nil {
 		log.Println(err)
 		return

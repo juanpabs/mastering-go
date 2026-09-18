@@ -14,6 +14,7 @@ func main() {
 	}
 	file := arguments[1]
 	path := os.Getenv("PATH")
+	founds := 0
 	pathSplit := filepath.SplitList(path)
 	for _, directory := range pathSplit {
 		fullPath := filepath.Join(directory, file)
@@ -30,7 +31,10 @@ func main() {
 		// Is it executable?
 		if mode&0111 != 0 {
 			fmt.Println(fullPath)
-			return
+			founds++
 		}
+	}
+	if founds == 0 {
+		os.Exit(1)
 	}
 }
